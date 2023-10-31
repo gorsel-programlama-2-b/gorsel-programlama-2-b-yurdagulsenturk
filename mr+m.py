@@ -1,9 +1,12 @@
+
 # -*- coding: utf-8 -*-
 """
-Created on Tue Oct 31 14:39:57 2023
+Created on Tue Oct 31 15:36:00 2023
 
 @author: C-117
 """
+
+import math
 
 class HesapMakinesi:
     def __init__(self):
@@ -25,6 +28,12 @@ class HesapMakinesi:
         else:
             print("Hata: Sıfıra bölme")
 
+    def faktoriyel(self):
+        self.suanki_deger = math.factorial(int(self.suanki_deger))
+
+    def mutlak_deger(self):
+        self.suanki_deger = abs(self.suanki_deger)
+
     def hafiza_kaydet(self):
         self.hafiza = self.suanki_deger
 
@@ -37,7 +46,6 @@ class HesapMakinesi:
     def goster(self):
         return self.suanki_deger
 
-
 hesap_makinesi = HesapMakinesi()
 
 while True:
@@ -47,32 +55,38 @@ while True:
     print("2. Çıkar")
     print("3. Çarp")
     print("4. Böl")
-    print("5. M (Hafızaya Kaydet)")
-    print("6. MR (Hafıza Geri Çağırma)")
-    print("7. Temizle")
-    print("8. Çıkış")
+    print("5. Faktoriyel")
+    print("6. Mutlak Değer")
+    print("7. M (Hafızaya Kaydet)")
+    print("8. MR (Hafıza Geri Çağırma)")
+    print("9. Temizle")
+    print("10. Çıkış")
 
     secim = input("Seçiminizi yapın: ")
 
     if secim == '1':
-        num = float(input("Toplamak için bir sayı girin: "))
+        num = float(input("Toplanacak sayıyı girin: "))
         hesap_makinesi.topla(num)
     elif secim == '2':
-        num = float(input("Çıkarmak için bir sayı girin: "))
+        num = float(input("Çıkarılacak sayıyı girin: "))
         hesap_makinesi.cikar(num)
     elif secim == '3':
-        num = float(input("Çarpmak için bir sayı girin: "))
+        num = float(input("Çarpılacak sayıyı girin: "))
         hesap_makinesi.carp(num)
     elif secim == '4':
-        num = float(input("Bölmek için bir sayı girin: "))
+        num = float(input("Bölünecek sayıyı girin: "))
         hesap_makinesi.bol(num)
     elif secim == '5':
-        hesap_makinesi.hafiza_kaydet()
+        hesap_makinesi.faktoriyel()
     elif secim == '6':
-        hesap_makinesi.hafiza_hatirla()
+        hesap_makinesi.mutlak_deger()
     elif secim == '7':
-        hesap_makinesi.temizle()
+        hesap_makinesi.hafiza_kaydet()
     elif secim == '8':
+        hesap_makinesi.hafiza_hatirla()
+    elif secim == '9':
+        hesap_makinesi.temizle()
+    elif secim == '10':
         break
     else:
-        print("Hatalı işlem.Tekrar deneyin!")
+        print("Hatalı işlem. Tekrar deneyin!")
